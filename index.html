@@ -35,8 +35,8 @@
       </div>
       <div class="list-container">
           <ul id="toDolist">
-            <li v-for="(item,index) in list" :class="item.done ? 'checked' : ''" @click>
-              <p>{{list[index].text}}</p>
+            <li v-for="(item,index) in list" :class="item.done ? 'checked' : ''" >
+              <p @click="toggleChecked(index)">{{list[index].text}}</p>
               <button type="button" class="removeFromList btn" @click="deleteItem(index)"><i class="fa-solid fa-xmark"></i></button>
             </li>
 
