@@ -75,9 +75,17 @@ header {
 .list-container li.checked p{
     text-decoration: line-through;
 }
+.list-container li.checked::before{
+    content: "\2713";
+    margin-right: 0.5rem;
+}
 
 .removeFromList.btn {
     padding: 0.5rem 0.8rem;
     border-radius: 1.5rem;
     font-size: 1rem;
+}
+
+[v-cloak] {
+    display: none;
 }
