@@ -36,7 +36,7 @@
           <ul id="toDolist">
             <li v-for="(item,index) in list" :class="item.done ? 'checked' : '' ">
               <p>{{list[index].text}}</p>
-              <button type="button" class="removeFromList btn">x</button>
+              <button type="button" class="removeFromList btn" @click="deleteItem(index)">x</button>
             </li>
 
           </ul>
