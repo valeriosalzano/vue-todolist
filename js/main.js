@@ -1,5 +1,3 @@
-// MILESTONE 2
-// Visualizzare a fianco ad ogni item ha una “x”: cliccando su di essa, il todo viene rimosso dalla lista.
 // MILESTONE 3
 // Predisporre un campo di input testuale e un pulsante “aggiungi”: cliccando sul pulsante, il testo digitato viene letto e utilizzato per creare un nuovo todo, che quindi viene aggiunto alla lista dei todo esistenti.
 // Bonus:
@@ -12,6 +10,8 @@ const { createApp } = Vue
     data() {
       return {
         list : {},
+        userInput : '',
+        errorLength : false
       }
     },
     methods: {
@@ -27,6 +27,23 @@ const { createApp } = Vue
       },
       deleteItem (index){
         this.list.splice(index,1);
+      },
+      addItem (){
+        let userText = this.userInput;
+        if (userText.trim().length>=5){
+          this.errorLength = false;
+          let newItem = {};
+          newItem.text = userText;
+          newItem.done = false;
+          this.list.unshift(newItem);
+          this.userInput = '';
+        } else {
+          this.errorLength = true;
+        }
+        
+      },
+      eraseList(){
+        this.list = [];
       }
     },
     mounted(){
